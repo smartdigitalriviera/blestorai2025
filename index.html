@@ -1,275 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 étapes pour vendre une solution d'IA à un client non-tech</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 étapes pour vendre une solution d'IA à un client non-tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            background: #1A1A1A;
-            color: #FFFFFF;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background: #1A1A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .header {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(45deg, #00C2FF, #0099CC, #0077AA);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
+    .header {
+      text-align: center;
+      padding: 60px 0;
+      color: #FFFFFF; /* ✅ Le texte est blanc et visible */
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.3s forwards;
+    }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      color: #FFFFFF; /* ✅ Forcer la couleur blanche sur le titre */
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
 
-        .subtitle {
-            color: #00C2FF;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.7s forwards;
-        }
+    .subtitle {
+      color: #00C2FF;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.7s forwards;
+    }
 
-        .header p:last-child {
-            color: #F4F4F4;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-
-        .intro {
-            background: rgba(244, 244, 244, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border: 1px solid rgba(0, 194, 255, 0.3);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .intro.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .intro h2 {
-            color: #00C2FF;
-            margin-bottom: 20px;
-        }
-
-        .step {
-            background: rgba(244, 244, 244, 0.03);
-            margin: 30px 0;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #00C2FF;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 194, 255, 0.2);
-        }
-
-        .step-number {
-            background: linear-gradient(45deg, #00C2FF, #0099CC);
-            color: #FFFFFF;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .step h3 {
-            color: #00C2FF;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .step p {
-            line-height: 1.7;
-            color: #F4F4F4;
-        }
-
-        /* Animation ROI */
-        .roi-animation {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 50px 0;
-            text-align: center;
-            border: 2px solid #00C2FF;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .roi-animation.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .roi-title {
-            color: #00C2FF;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-        }
-
-        .money-flow {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .money-box {
-            background: linear-gradient(45deg, #1A1A1A, #2A2A2A);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #00C2FF;
-            min-width: 200px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .money-amount {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #00C2FF;
-            margin-bottom: 10px;
-        }
-
-        .money-label {
-            color: #F4F4F4;
-            font-size: 1rem;
-        }
-
-        .arrow {
-            font-size: 3rem;
-            color: #00C2FF;
-            animation: bounce 1.5s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
-
-        .conclusion {
-            background: linear-gradient(45deg, #00C2FF, #0099CC);
-            color: #FFFFFF;
-            padding: 40px;
-            border-radius: 20px;
-            margin: 50px 0;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .conclusion.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .guarantee {
-            background: rgba(255, 0, 0, 0.1);
-            border: 2px solid #ff4757;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            animation: glow 2s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(255, 71, 87, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.6); }
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ff4757, #ff3742);
-            color: #FFFFFF;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            margin: 10px;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.1);
-        }
-
-        .highlight {
-            color: #00C2FF;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
-            .money-flow { flex-direction: column; }
-            .arrow { transform: rotate(90deg); }
-        }
-    </style>
+    .header p:last-child {
+      color: #F4F4F4;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.9s forwards;
+    }
+  </style>
 </head>
 <body>
     <div class="container">
